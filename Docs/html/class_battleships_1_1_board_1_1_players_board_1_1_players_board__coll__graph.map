@@ -1,0 +1,5 @@
+<map id="Battleships.Board.PlayersBoard.PlayersBoard" name="Battleships.Board.PlayersBoard.PlayersBoard">
+<area shape="rect" id="node1" title=" " alt="" coords="5,155,195,196"/>
+<area shape="rect" id="node2" href="$interface_battleships_1_1_board_1_1_players_board_1_1_i_players_board.html" title="Allows IPlayer to store information about it&#39;s ships positions." alt="" coords="44,80,156,107"/>
+<area shape="rect" id="node3" href="$interface_battleships_1_1_board_1_1_i_board.html" title="Base board interface that&#39;s meant to be extended upon. &#160;&#160;Boards by default cannot be of non&#45;existing ..." alt="" coords="68,5,132,32"/>
+</map>
