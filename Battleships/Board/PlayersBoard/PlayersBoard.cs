@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Battleships.Ships;
 
@@ -50,45 +51,56 @@ namespace Battleships.Board.PlayersBoard
 
         private void PlaceShipHorizontally(IShip ship)
         {
-            foreach (var offset in ship.CoordinatesOffsets)
+            List<Coordinates> offsets = ship.CoordinatesOffsets.Select(offset => new Coordinates((byte)(ship.Coordinates.Horizontal + offset),
+                ship.Coordinates.Vertical)).ToList();
+
+            CheckIfOutOfBounds(offsets);
+            CheckForOverlapping(offsets);
+
+            foreach (var offset in offsets)
             {
-                CheckIfOutOfBounds(ship.Coordinates.Horizontal + offset, ship.Coordinates.Vertical);
-                CheckForOverlapping(ship.Coordinates.Horizontal + offset, ship.Coordinates.Vertical);
-                Fields[ship.Coordinates.Horizontal + offset, ship.Coordinates.Vertical] = ship;
+                Fields[offset.Horizontal, offset.Vertical] = ship;
             }
         }
 
         private void PlaceShipVertically(IShip ship)
         {
-            foreach (var offset in ship.CoordinatesOffsets)
+            List<Coordinates> offsets = ship.CoordinatesOffsets.Select(offset => new Coordinates(ship.Coordinates.Horizontal,
+                (byte)(ship.Coordinates.Vertical + offset))).ToList();
+
+            CheckIfOutOfBounds(offsets);
+            CheckForOverlapping(offsets);
+
+            foreach (var offset in offsets)
             {
-                CheckIfOutOfBounds(ship.Coordinates.Horizontal, ship.Coordinates.Vertical + offset);
-                CheckForOverlapping(ship.Coordinates.Horizontal, ship.Coordinates.Vertical + offset);
-                Fields[ship.Coordinates.Horizontal, ship.Coordinates.Vertical + offset] = ship;
+                Fields[offset.Horizontal, offset.Vertical] = ship;
             }
         }
 
         /// <summary>
-        /// Checks if a field specified by passed parameters is already occupied, throws an exception if so.
+        /// Checks if any of the provided coordinates is already occupied
         /// </summary>
-        /// <param name="horizontalPos"></param>
-        /// <param name="verticalPos"></param>
         /// <exception cref="ArgumentException"></exception>
-        private void CheckForOverlapping(int horizontalPos, int verticalPos)
+        private void CheckForOverlapping(List<Coordinates> coordinates)
         {
-            var field = Fields[horizontalPos, verticalPos];
-            if (field != null)
+            foreach (var coordinate in coordinates)
             {
-                throw new ArgumentException("Tried placing ship on occupied field.");
+                var field = Fields[coordinate.Horizontal, coordinate.Vertical];
+                if (field != null)
+                {
+                    throw new ArgumentException("Tried placing ship on occupied field.");
+                }
             }
         }
 
-        private void CheckIfOutOfBounds(int horizontalPos, int verticalPos)
+        private void CheckIfOutOfBounds(List<Coordinates> coordinates)
         {
-            if (horizontalPos < 0 || HorizontalSize < horizontalPos ||
-                verticalPos < 0 || VerticalSize < verticalPos)
+            foreach (var coordinate in coordinates)
             {
-                throw new IndexOutOfRangeException("Tried placing ship out of bounds");
+                if (coordinate.Horizontal > HorizontalSize || coordinate.Vertical > VerticalSize)
+                {
+                    throw new IndexOutOfRangeException("Tried placing ship out of bounds");
+                }
             }
         }
     }
