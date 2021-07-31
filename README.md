@@ -13,6 +13,7 @@ Battleships
 3. [Getting started](#getting-started)
    * [Installation](#installation)
    * [Running](#running)
+4. [Documentation](#documentation)
 
 ## Description
 
@@ -27,3 +28,10 @@ Battleships
 ### Installation
 
 ### Running
+
+## Documentation
+
+Documentation is automatically generated from docstrings with Doxygen on each push to master and it can be found in the "Docs" folder.
+Github allows to easily host documentation on Pages deployment, but unfortunately that is not possible for private repos.
+
+A sample Action on how to achieve that is provided in docs generation Action.

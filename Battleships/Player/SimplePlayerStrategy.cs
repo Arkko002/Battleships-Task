@@ -14,11 +14,12 @@ namespace Battleships.Player
     {
         public IPlayersBoard PlayersBoard { get; }
         private Random _random = new Random();
-        private IShipFactory _shipFactory = new ShipFactory();
+        private IShipFactory _shipFactory;
 
-        public SimplePlayerStrategy(IPlayersBoard playersBoard)
+        public SimplePlayerStrategy(IPlayersBoard playersBoard, IShipFactory shipFactory)
         {
             PlayersBoard = playersBoard;
+            _shipFactory = shipFactory;
         }
 
         
@@ -31,7 +32,7 @@ namespace Battleships.Player
                TryPlacingShip(ship); 
             }
         }
-
+        
         public Coordinates GetShotCoordinates(byte boardHorizontalSize,byte boardVerticalSize)
             
         {
@@ -47,7 +48,7 @@ namespace Battleships.Player
             while (true)
             {
                 // Create ship parameters using random values 
-                ship.Orientation = (ShipOrientation)_random.Next(0, 3);
+                ship.Orientation = (ShipOrientation)_random.Next(0, 1);
                 byte verticalPos = (byte)_random.Next(0, PlayersBoard.VerticalSize);
                 byte horizontalPos = (byte)_random.Next(0, PlayersBoard.HorizontalSize);
                 ship.Coordinates = new Coordinates(horizontalPos, verticalPos);

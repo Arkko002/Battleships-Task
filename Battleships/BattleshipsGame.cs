@@ -3,6 +3,7 @@ using Battleships.Player;
 using Battleships.Rules;
 using Battleships.Board.PlayersBoard;
 using Battleships.Board.TrackingBoard;
+using Battleships.Ships;
 
 
 namespace Battleships
@@ -48,9 +49,9 @@ namespace Battleships
             var firstTrackingBoard = new TrackingBoard(GameRules.BoardVerticalSize, GameRules.BoardHorizontalSize); 
             var secondTrackingBoard = new TrackingBoard(GameRules.BoardVerticalSize, GameRules.BoardHorizontalSize);
 
-            FirstPlayer = new SimplePlayer(firstPlayersBoard, firstTrackingBoard, new SimplePlayerStrategy(),
+            FirstPlayer = new SimplePlayer(firstPlayersBoard, firstTrackingBoard, new SimplePlayerStrategy(firstPlayersBoard, new ShipFactory()),
                 GameRules);
-            SecondPlayer = new SimplePlayer(secondPlayersBoard, secondTrackingBoard, new SimplePlayerStrategy(),
+            SecondPlayer = new SimplePlayer(secondPlayersBoard, secondTrackingBoard, new SimplePlayerStrategy(secondPlayersBoard, new ShipFactory()),
                 GameRules);
 
             TimeCounter = 1;

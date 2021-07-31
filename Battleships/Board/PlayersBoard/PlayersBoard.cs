@@ -52,6 +52,7 @@ namespace Battleships.Board.PlayersBoard
         {
             foreach (var offset in ship.CoordinatesOffsets)
             {
+                CheckIfOutOfBounds(ship.Coordinates.Horizontal + offset, ship.Coordinates.Vertical);
                 CheckForOverlapping(ship.Coordinates.Horizontal + offset, ship.Coordinates.Vertical);
                 Fields[ship.Coordinates.Horizontal + offset, ship.Coordinates.Vertical] = ship;
             }
@@ -61,6 +62,7 @@ namespace Battleships.Board.PlayersBoard
         {
             foreach (var offset in ship.CoordinatesOffsets)
             {
+                CheckIfOutOfBounds(ship.Coordinates.Horizontal, ship.Coordinates.Vertical + offset);
                 CheckForOverlapping(ship.Coordinates.Horizontal, ship.Coordinates.Vertical + offset);
                 Fields[ship.Coordinates.Horizontal, ship.Coordinates.Vertical + offset] = ship;
             }

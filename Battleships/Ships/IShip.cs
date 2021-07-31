@@ -15,7 +15,7 @@ namespace Battleships.Ships
         Coordinates Coordinates { get; set; } 
         
         /// <summary>
-        /// Coordinates offset from <see cref="Coordinates"/> that the ship occupies/> <br/>
+        /// Coordinates offset relative from position from <see cref="Coordinates"/> that the ship occupies/> <br/>
         /// First value should always be 0, that will be the center of ship placed on starting coordinates.
         /// </summary>
         byte[] CoordinatesOffsets { get; }
