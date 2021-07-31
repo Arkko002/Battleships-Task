@@ -1,0 +1,4 @@
+<map id="Battleships.Player.IPlayerStrategy" name="Battleships.Player.IPlayerStrategy">
+<area shape="rect" id="node1" title="Exposes actions to IPlayer that allow it make decisions about game mechanics." alt="" coords="5,5,195,47"/>
+<area shape="rect" id="node2" href="$class_battleships_1_1_player_1_1_simple_player_strategy.html" title="A demonstration of IPlayerStrategy that mostly relies on pseudo&#45;random values." alt="" coords="5,95,195,136"/>
+</map>

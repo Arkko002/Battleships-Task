@@ -1,0 +1,4 @@
+<map id="Battleships.Player.SimplePlayer" name="Battleships.Player.SimplePlayer">
+<area shape="rect" id="node1" title="A simple implementation of IPlayer interface that delegates most of the work to it&#39;s property objects..." alt="" coords="5,80,195,121"/>
+<area shape="rect" id="node2" href="$interface_battleships_1_1_player_1_1_i_player.html" title="Main player interface responsible for managing boards and creating shot coordinates." alt="" coords="67,5,133,32"/>
+</map>

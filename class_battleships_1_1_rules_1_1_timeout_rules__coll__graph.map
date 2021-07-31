@@ -1,0 +1,4 @@
+<map id="Battleships.Rules.TimeoutRules" name="Battleships.Rules.TimeoutRules">
+<area shape="rect" id="node1" title="TIme running out win condition ruleset." alt="" coords="5,80,197,121"/>
+<area shape="rect" id="node2" href="$interface_battleships_1_1_rules_1_1_i_winning_rules.html" title="Determines winner of the game based on algorithm in the implementations. &#160;&#160;&#160;For general rules see IGa..." alt="" coords="44,5,159,32"/>
+</map>

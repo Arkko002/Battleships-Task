@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$interface_battleships_1_1_rules_1_1_i_winning_rules.html" title="Determines winner of the game based on algorithm in the implementations. &#160;&#160;&#160;For general rules see IGa..." alt="" coords="5,39,201,80"/>
+<area shape="rect" id="node2" href="$class_battleships_1_1_rules_1_1_official_rules.html" title="Simple ruleset based on the official Battleships rules. &#160;&#160;&#160;For more information see rules here" alt="" coords="252,5,439,47"/>
+<area shape="rect" id="node3" href="$class_battleships_1_1_rules_1_1_timeout_rules.html" title="TIme running out win condition ruleset." alt="" coords="249,71,441,112"/>
+</map>
