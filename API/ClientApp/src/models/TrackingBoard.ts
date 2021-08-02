@@ -1,5 +1,8 @@
 import {TrackingFieldState} from "@/models/TrackingFieldState";
 
 export interface TrackingBoard {
-    Fields: TrackingFieldState[][]
+    fields: TrackingFieldState[][]
+    destroyedShipsCount: number;
+    horizontalSize: number;
+    verticalSize: number;
 }

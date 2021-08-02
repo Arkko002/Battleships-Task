@@ -1,3 +1,3 @@
 export interface Ship {
-    IsDestroyed: boolean;
+    isDestroyed: boolean;
 }

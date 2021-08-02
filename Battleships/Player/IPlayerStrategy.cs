@@ -1,6 +1,8 @@
+using System.Collections.Generic;
 using Battleships.Board;
 using Battleships.Board.PlayersBoard;
 using Battleships.Rules;
+using Battleships.Ships;
 
 namespace Battleships.Player
 {
@@ -11,7 +13,7 @@ namespace Battleships.Player
     {
         IPlayersBoard PlayersBoard { get; }
         
-        void PlaceShips(IGameRules gameRules);
+        void PlaceShips(IEnumerable<IShip> ships);
         
         Coordinates GetShotCoordinates(byte boardVerticalSize, byte boardHorizontalSize);
     }

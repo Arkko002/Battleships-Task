@@ -1,5 +1,7 @@
 import {Ship} from "@/models/Ship";
 
 export interface PlayerBoard {
-    Fields: Ship[][] 
+    fields: Ship[][];
+    horizontalSize: number;
+    verticalSize: number;
 }

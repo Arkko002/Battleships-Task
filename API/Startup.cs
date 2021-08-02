@@ -24,11 +24,13 @@ namespace Battleships_Task
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Battleships_Task", Version = "v1" });
             });
+
+            services.AddCors();
 
             // Register the game with example rulesets
             int timeCounter = 0;
@@ -49,11 +51,11 @@ namespace Battleships_Task
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Battleships_Task v1"));
             }
 
-            app.UseHttpsRedirection();
-
+            app.UseCors(
+                options => options.WithOrigins("http://localhost:8080").AllowAnyHeader().AllowAnyMethod()
+            );
+            
             app.UseRouting();
-
-            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

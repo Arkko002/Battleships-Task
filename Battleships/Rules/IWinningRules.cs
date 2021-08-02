@@ -1,4 +1,3 @@
-using Battleships.Board;
 using Battleships.Player;
 
 namespace Battleships.Rules

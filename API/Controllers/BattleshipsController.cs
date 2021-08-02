@@ -1,5 +1,4 @@
-﻿using System.Text.Json;
-using Battleships;
+﻿using Battleships;
 using Battleships.Rules;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -7,7 +6,6 @@ using Microsoft.Extensions.Logging;
 namespace Battleships_Task.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
     public class BattleshipsController : ControllerBase
     {
         private readonly ILogger<BattleshipsController> _logger;
@@ -20,27 +18,32 @@ namespace Battleships_Task.Controllers
         }
 
         [HttpGet]
-        public JsonResult Get()
+        [Route("/state")]
+        public ActionResult GetState()
         {
-            return new JsonResult(JsonSerializer.Serialize(_battleshipsGame.GetGameState()));
+            return new JsonResult(_battleshipsGame.GetGameState());
         }
 
         [HttpPost]
+        [Route("/rules")]
         public void SetRules([FromBody] IGameRules gameRules)
         {
             _battleshipsGame.GameRules = gameRules;
         }
 
         [HttpPost]
-        public void RestartGame()
+        [Route("/start")]
+        public ActionResult StartGame()
         {
             _battleshipsGame.StartGame();
+            return new JsonResult(_battleshipsGame.GetGameState());
         }
 
         [HttpPost]
-        public JsonResult NextMove()
+        [Route("/move")]
+        public IActionResult NextMove()
         {
-            return new JsonResult(JsonSerializer.Serialize(_battleshipsGame.NextMove()));
+            return new JsonResult(_battleshipsGame.NextMove());
         }
     }
 }

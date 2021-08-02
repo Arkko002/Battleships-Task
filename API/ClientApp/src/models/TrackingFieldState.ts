@@ -1,7 +1,7 @@
 export enum TrackingFieldState {
-    NoState,
-    Empty,
-    Miss,
-    Hit,
-    DestroyedShip
+  noState,
+  empty,
+  miss,
+  hit,
+  destroyedShip,
 }

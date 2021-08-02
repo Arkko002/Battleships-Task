@@ -1,4 +1,3 @@
-using Battleships.Board;
 using System.Linq;
 using Battleships.Player;
 

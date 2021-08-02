@@ -1,5 +1,3 @@
-using System.Linq;
-using Battleships.Board.TrackingBoard;
 using Battleships.Player;
 using Battleships.Rules;
 using Battleships.Ships;

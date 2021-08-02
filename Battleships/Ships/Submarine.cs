@@ -1,4 +1,3 @@
-using System;
 using Battleships.Board;
 
 namespace Battleships.Ships

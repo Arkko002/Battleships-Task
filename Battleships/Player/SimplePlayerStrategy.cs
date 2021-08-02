@@ -1,5 +1,5 @@
 using System;
-using System.Reflection;
+using System.Collections.Generic;
 using Battleships.Board;
 using Battleships.Board.PlayersBoard;
 using Battleships.Rules;
@@ -14,19 +14,15 @@ namespace Battleships.Player
     {
         public IPlayersBoard PlayersBoard { get; }
         private Random _random = new Random();
-        private IShipFactory _shipFactory;
 
-        public SimplePlayerStrategy(IPlayersBoard playersBoard, IShipFactory shipFactory)
+        public SimplePlayerStrategy(IPlayersBoard playersBoard)
         {
             PlayersBoard = playersBoard;
-            _shipFactory = shipFactory;
         }
 
         
-        public void PlaceShips(IGameRules gameRules)
+        public void PlaceShips(IEnumerable<IShip> ships)
         {
-            var ships = _shipFactory.GetShips(gameRules);
-
             foreach (var ship in ships)
             {
                TryPlacingShip(ship); 

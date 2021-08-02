@@ -49,10 +49,10 @@ namespace Battleships
             var firstTrackingBoard = new TrackingBoard(GameRules.BoardVerticalSize, GameRules.BoardHorizontalSize); 
             var secondTrackingBoard = new TrackingBoard(GameRules.BoardVerticalSize, GameRules.BoardHorizontalSize);
 
-            FirstPlayer = new SimplePlayer(firstPlayersBoard, firstTrackingBoard, new SimplePlayerStrategy(firstPlayersBoard, new ShipFactory()),
-                GameRules);
-            SecondPlayer = new SimplePlayer(secondPlayersBoard, secondTrackingBoard, new SimplePlayerStrategy(secondPlayersBoard, new ShipFactory()),
-                GameRules);
+            FirstPlayer = new SimplePlayer(firstPlayersBoard, firstTrackingBoard, new SimplePlayerStrategy(firstPlayersBoard),
+                GameRules, new ShipFactory());
+            SecondPlayer = new SimplePlayer(secondPlayersBoard, secondTrackingBoard, new SimplePlayerStrategy(secondPlayersBoard),
+                GameRules, new ShipFactory());
 
             TimeCounter = 1;
             CurrentWinStatus = WinStatus.GameInProgress;
@@ -66,11 +66,12 @@ namespace Battleships
             if (playersTurn == 1)
             {
                 ProcessTurn(FirstPlayer, SecondPlayer);
+                return GetGameState();
             }
 
             ProcessTurn(SecondPlayer, FirstPlayer);
-
             return GetGameState();
+
         }
 
         public GameState GetGameState()

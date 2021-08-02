@@ -1,30 +1,15 @@
-import Api from "./api"
-import {AxiosError} from "axios";
-import {GameState} from "@/models/GameState";
+/*eslint-disable*/
+import Api from "./api";
+import { GameState } from "@/models/GameState";
 
-export function getGameState(): Promise<GameState | void>  {
-    return Api.get<GameState>("/getState")
-        .then(res => {
-            return res.data;
-        }).catch((err: AxiosError) => {
-            console.error(err.message);
-        });
+export function getGameState(): Promise<GameState> {
+  return Api.get<GameState>("/state").then((res) => res.data);
 }
 
-export function nextMove(): Promise<GameState | void> {
-    return Api.post<GameState>("/nextMove")
-        .then(res => {
-            return res.data;
-        }).catch((err: AxiosError) => {
-            console.error(err.message);
-        })
+export function nextMove(): Promise<GameState> {
+  return Api.post<GameState>("/move").then((res) => res.data);
 }
 
-export function restartGame(): Promise<GameState | void> {
-    return Api.post<GameState>("/restart")
-        .then(res => {
-            return res.data;
-        }).catch((err: AxiosError) => {
-            console.error(err.message)
-        })
+export function startNewGame(): Promise<GameState> {
+  return Api.post<GameState>("/start").then((res) => res.data);
 }

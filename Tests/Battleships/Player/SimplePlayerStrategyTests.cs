@@ -21,7 +21,7 @@ namespace Tests.Battleships.Player
             _playersBoard = new PlayersBoard(20, 20);
             
             _shipFactory = new Mock<IShipFactory>();
-            _playerStrategy = new SimplePlayerStrategy(_playersBoard, _shipFactory.Object);
+            _playerStrategy = new SimplePlayerStrategy(_playersBoard);
         }
         
         [Theory]
@@ -46,7 +46,7 @@ namespace Tests.Battleships.Player
             _shipFactory.Setup(x => x.GetShips(It.IsAny<IGameRules>()))
                 .Returns(new List<IShip> { ship1, ship2, ship3 });
             
-            _playerStrategy.PlaceShips(new Mock<IGameRules>().Object);
+            _playerStrategy.PlaceShips(_shipFactory.Object.GetShips(new Mock<IGameRules>().Object));
             var query = from IShip ship in _playersBoard.Fields
                 where ship != null
                 select ship;
