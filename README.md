@@ -109,6 +109,6 @@ Tests are also run automatically in .NET CI Action, and their result can be seen
 ## Documentation
 
 Documentation is automatically generated from docstrings with Doxygen on each push to master and it can be found in the "Docs" folder.
-Github allows to easily host documentation on Pages deployment, but unfortunately that is not possible for private repos.
+They can also be viewed through Github Pages deployment at https://arkko002.github.io/Battleships-Task/
 
 A sample Action on how to achieve that is provided in docs generation Action.
