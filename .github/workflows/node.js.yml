@@ -13,11 +13,10 @@ jobs:
 
 
   build:
-
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./API/ClientApp
+        working-directory: API/ClientApp
     
     strategy:
       matrix:
